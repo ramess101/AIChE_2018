@@ -1,0 +1,52 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{graphicx}
+% uncomment according to your operating system:
+% ------------------------------------------------
+\usepackage[latin1]{inputenc}    %% european characters can be used (Windows, old Linux)
+%\usepackage[utf8]{inputenc}     %% european characters can be used (Linux)
+%\usepackage[applemac]{inputenc} %% european characters can be used (Mac OS)
+% ------------------------------------------------
+\usepackage{authblk}
+\usepackage[superscript]{cite}
+\usepackage[document]{ragged2e}
+\usepackage[T1]{fontenc}   %% get hyphenation and accented letters right
+\usepackage{mathptmx}      %% use fitting times fonts also in formulas
+% do not change these lines:
+\pagestyle{empty}                %% no page numbers!
+\usepackage[left=35mm, right=35mm, top=15mm, bottom=20mm, noheadfoot]{geometry}
+%% please don't change geometry settings!
+
+
+% begin the document
+\begin{document}
+	\thispagestyle{empty}
+	%make title bold and 14 pt font (Latex default is non-bold, 16 pt)
+	\title{\Large \textbf{Developing fundamental equations of state from hybrid data sets using united-atom force fields}}
+	\author[1]{\large {Andrei Kazakov}}
+	\author[1]{\large {\underline{Richard Messerly}}}%%[12 pt regular, presenting speaker underlined]
+	
+	\affil[1]{\textit{Thermodynamics Research Center (TRC), National Institute of Standards and Technology (NIST),
+			Boulder, Colorado, 80305, USA}}
+	\affil[2]{\textit{Department of Chemical and Biological Engineering, University of Colorado, Boulder, Colorado, 80309, USA}}
+	\affil[3]{\textit{Department of Chemical and Biomolecular Engineering, The University of Akron, Akron, Ohio, 44325, USA}}
+	
+	\date{} % <--- leave date empty
+	\maketitle\thispagestyle{empty} %% <-- you need this for the first page
+	\begin{center}
+		\title{\textbf{ABSTRACT}}\centering{}
+	\end{center}
+	\justify
+	
+	%AIChE description:
+	
+	%	Industrial Applications of Computational Chemistry and Molecular Simulation
+	%Contributions describing industrial applications of computational chemistry and/or molecular simulations. 
+	
+	Fundamental equations of state (FEOS), such as those based on the Helmholtz free energy (e.g. REFPROP), are a powerful approach for estimating pressure, density, temperature $(P\rho T)$ behavior and caloric properties, such as internal energy $(U)$ and isochoric/isobaric heat capacities $(c_{\rm v}$ and $c_{\rm p}$, respectively). Unfortunately, most compounds do not have sufficient (reliable) experimental data for a diverse set of thermodynamic properties covering a wide range of $P \rho T$ conditions to develop a highly-accurate FEOS. The lack of experimental data at high temperatures and pressures, especially, is attributed to the inherent safety, cost, and complexity of such experiments. By contrast, molecular simulation (i.e. Monte Carlo, MC, and molecular dynamics, MD) methods at high temperatures and pressures do not suffer from any of these limitations.
+	
+	For this reason, FEOS are developed for compounds with limited experimental data by including molecular simulation results at extreme temperatures and pressures. For this so-called ``hybrid data set'' approach to work, it is imperative that the force field be reliable and transferable over different $P \rho T$ conditions. Unfortunately, literature united-atom force fields that are highly accurate for estimating vapor-liquid equilbiria (VLE) properties of normal and branched alkanes suffer from significant systematic deviations in the compressibility factor $(Z)$, $U$, and $c_{\rm v}$ at high pressures. Bayesian inference suggests that the UA Mie $\lambda$-6 model type is not adequate for simultaneously predicting saturated liquid density $(\rho_{\rm l}^{\rm sat})$, saturated vapor pressure $(P_{\rm v}^{\rm sat})$, $Z$, and $U$. Therefore, while considerable improvement in VLE is observed for the Mie $\lambda$-6 potential over the traditional Lennard-Jones 12-6, we recommend that alternative models be considered for developing FEOS of normal and branched alkanes, such as force fields that use anisotropic-united-atom, all-atom, and/or alternative non-bonded potentials.
+			
+%	 by molecular simulation results at extreme temperatures and pressures have been used to supplement experimental data when developing FEOS for compounds with limited experimental data.		
+% by supplementing compounds with limited experimental data with molecular simulation results at extreme temperatures and pressures are used to develop FEOS for compounds with limited experimental data.
+			
+\end{document}
