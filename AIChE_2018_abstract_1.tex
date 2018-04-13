@@ -21,16 +21,16 @@
 \begin{document}
 	\thispagestyle{empty}
 	%make title bold and 14 pt font (Latex default is non-bold, 16 pt)
-	\title{\Large \textbf{High pressure simulations to infer the repulsive barrier of the Mie $n$-6 non-bonded potential}}
+	\title{\Large \textbf{Bayesian inference demonstrates inadequacies of Mie $n$-6 repulsive barrier at high pressures}} %High pressure simulations to infer the repulsive barrier of the Mie $n$-6 non-bonded potential
 	\author[1]{\large {Andrei Kazakov}}
-	\author[3]{\large {S. Mostafa Razavi}}
+	%\author[3]{\large {S. Mostafa Razavi}}
 	\author[1]{\large {\underline{Richard Messerly}}}%%[12 pt regular, presenting speaker underlined]
 	
 	
 	\affil[1]{\textit{Thermodynamics Research Center (TRC), National Institute of Standards and Technology (NIST),
 			Boulder, Colorado, 80305, USA}}
-	\affil[2]{\textit{Department of Chemical and Biological Engineering, University of Colorado, Boulder, Colorado, 80309, USA}}
-	\affil[3]{\textit{Department of Chemical and Biomolecular Engineering, The University of Akron, Akron, Ohio, 44325, USA}}
+	%\affil[2]{\textit{Department of Chemical and Biological Engineering, University of Colorado, Boulder, Colorado, 80309, USA}}
+	%\affil[3]{\textit{Department of Chemical and Biomolecular Engineering, The University of Akron, Akron, Ohio, 44325, USA}}
 	
 	\date{} % <--- leave date empty
 	\maketitle\thispagestyle{empty} %% <-- you need this for the first page
@@ -43,18 +43,20 @@
 	
 	%	The reliability of molecular simulation results is ultimately dependent upon the efficacy of the intermolecular interactions that underpin the simulation. Consequently, development of accurate and reliable intermolecular potentials is critical for improved simulation capabilities. Extensive validation of developed intermolecular potentials is needed to ensure that simulation results are accurate and reproducible over a range of systems and conditions. We seek papers for this session dealing with development of potential models and force fields as obtained from experiment, quantum mechanical calculations, data inversion, etc. We also seek papers reporting extensive validation of potentials and force fields for a wide range of substances for condensed or solid phases at ambient or extreme conditions. Theoretical and methodological studies are also appropriate. Reactive force fields are welcome.
 	
-	Outline:
-	\begin{enumerate}
-		\item Mie potential where the repulsive exponent is a fitting parameter provides increased accuracy for VLE
-		\item However, there is concern over the theoretical justification of using a harder repulsive exponent
-		\item This study tests the Mie potential at higher pressures where the close-range repulsive interactions become more significant
-		\item This is achieved by rigorously quantifying the uncertainty in the non-bonded parameters and propagating those uncertainties when predicting compressed liquids 
-		\item A comparison is made between the Mie and Exp-6 potentials
-	\end{enumerate}
+%	Outline:
+%	\begin{enumerate}
+%		\item Mie potential where the repulsive exponent is a fitting parameter provides increased accuracy for VLE
+%		\item However, there is concern over the theoretical justification of using a harder repulsive exponent
+%		\item This study tests the Mie potential at higher pressures where the close-range repulsive interactions become more significant
+%		\item This is achieved by rigorously quantifying the uncertainty in the non-bonded parameters and propagating those uncertainties when predicting compressed liquids 
+%		\item A comparison is made between the Mie and Exp-6 potentials
+%	\end{enumerate}
 	
-	Over the past decade, the Mie $n$-6 (generalized Lennard-Jones) non-bonded potential has provided significant improvement when predicting vapor-liquid equilibria (VLE) properties of organic compounds. The optimal value of $n$ is typically greater than $12$ for a united-atom (UA) force field optimized with VLE data (e.g. $n_{\rm TAMie}= 14$ or $n_{\rm Potoff} = 16$). However, there exist strong theoretical concerns that $n /ge 12$ is too repulsive at short distances. While the forces at close-range distances do not dramatically impact VLE properties, they can play a large role at high pressures.
+	Over the past decade, the Mie $n$-6 (generalized Lennard-Jones, LJ) non-bonded potential has provided significant improvement when predicting vapor-liquid equilibria (VLE) properties of organic compounds. For united-atom (UA) force fields parameterized with VLE data, the optimal value of $n$ is typically greater than 12, in contrast to the traditional LJ 12-6. However, there exist strong theoretical concerns that $n \ge 12$ is too repulsive at short distances. While the forces at close-range distances do not dramatically impact VLE properties, they can play a large role at high pressures.
 	
-	For this reason, we investigate the practical implications of using a Mie $n$-6 potential for $n\ge12$ at high pressures. Specifically, we determine if the UA Mie $n$-6 accurately predicts the compressibility factor $(Z)$ and viscosity $(\eta)$ of normal and branched alkanes at high pressures. We observe a large positive bias in $Z$ and $\eta$ for $n>12$ at high pressures that increases with increasing $n$. Bayesian inference of the non-bonded parameters demonstrates that no set of $\epsilon$, $\sigma$, and $n$ adequately predicts both VLE and high pressure properties. Also, we do not observe any improvement when comparing the Mie $n$-6 results with those of the Buckingham exponential-6 potential, which is purported to have a more realistic repulsive barrier. These observations are of both practical and theoretical significance when selecting the non-bonded function form.
+	% $n > 12$The VLE optimal value of $n$ for a united-atom (UA) force field is typically greater than $12$
+	
+	For this reason, we investigate the practical implications of using a Mie $n$-6 potential for $n\ge12$ at high pressures. Specifically, we determine if the UA Mie $n$-6 accurately predicts the compressibility factor $(Z)$ and viscosity $(\eta)$ of normal and branched alkanes at high pressures. We observe a large positive bias in $Z$ and $\eta$ for $n>12$ at high pressures that increases with increasing $n$. Bayesian inference of the non-bonded parameters demonstrates that no set of $\epsilon$, $\sigma$, and $n$ adequately predicts both VLE and high pressure properties. Also, we do not observe any improvement when comparing the Mie $n$-6 results with those of the Buckingham exponential-6 potential, which is purported to have a more realistic repulsive barrier. These observations are of both practical and theoretical significance when selecting the ``best'' function form for computing non-bonded interactions.
 	
 %	The reliability of molecular simulation results depends primarily on the force field. In particular, several thermophysical properties are highly sensitive to the non-bonded interactions. Unfortunately, determining the ``optimal'' parameters for a non-bonded potential model has traditionally been an arduous and time-consuming task. For example, non-bonded potentials are frequently parameterized using vapor-liquid equilibria (VLE) properties, such as saturated liquid and vapor densities, saturated vapor pressures, and heat of vaporization. This parameterization approach often requires large amounts of Gibbs Ensemble Monte Carlo (GEMC) or Grand Canonical Monte Carlo (GCMC) simulations using hundreds of different non-bonded parameter values. 
 %	
