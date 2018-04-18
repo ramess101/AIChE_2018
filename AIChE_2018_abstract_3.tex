@@ -21,7 +21,10 @@
 \begin{document}
 	\thispagestyle{empty}
 	%make title bold and 14 pt font (Latex default is non-bold, 16 pt)
-	\title{\Large \textbf{The Industrial Fluid Properties Simulation Challenge: Accuracy of force field parameterized with high pressure thermodynamic properties}}
+	\title{\Large \textbf{Developing a force field that predicts reliable viscosities at high pressures}}
+			%The Industrial Fluid Properties Simulation Challenge:
+			% An arduous test of force field transferability}}
+			% Accuracy of force field parameterized with high pressure thermodynamic properties}}
 			% Transferability of non-bonded potential parameterized with isooctane REFPROP equation-of-state}}
 			%Force field parameterized with isooctane REFPROP equation of state
 			%Accuracy of force field parameterized with high pressure thermodynamic properties
@@ -53,10 +56,18 @@
 %	2. Isooctane is used as a surrogate compound
 %	3. CH3, CH2, CH, and C parameters are optimized simultaneously to REFPROP
 	
-	Accurate prediction of viscosity $(\eta)$ at high pressures $(P)$ necessitates an extremely reliable force field for at least two reasons. First, the viscosity at a given density $(\rho)$ is highly sensitive to the non-bonded function form and associated parameters. Second, the viscosity depends strongly on the predicted density, which is also very sensitive to the force field. 
+	Accurate prediction of viscosity $(\eta)$ at high pressures $(P)$ necessitates an extremely reliable force field for at least two reasons. First, the viscosity at a given density $(\rho)$ is highly sensitive to the function form and associated parameters, especially those of the non-bonded interactions. Second, the viscosity depends strongly on the predicted density, which is also very sensitive to the force field. 
 	
-	Since the challenge compound is 2,2,4-trimethylhexane (TMH), we chose 2,2,4-trimethylpentane (TMP, a.k.a. isooctane) as a surrogate molecule. Specifically, the optimal non-bonded parameters are obtained empirically by minimizing the deviation between the predicted and REFPROP $P\rho T$ and caloric properties for TMP. The CH$_3$, CH$_2$, CH, and C non-bonded parameters are optimized simultaneously. This high-dimensional parameterization is possible by reweighting configurations using Multistate Bennett Acceptance Ratio (MBAR) and by including several properties over a wide range of state points.  
+	To develop a highly accurate force field, the CH$_3$, CH$_2$, CH, and C non-bonded parameters are optimized simultaneously using a large data set. Since the challenge compound is 2,2,4-trimethylhexane (TMH), we chose 2,2,4-trimethylpentane (TMP, a.k.a. isooctane) as a surrogate molecule to improve transferability. Specifically, the optimal non-bonded parameters are obtained empirically by minimizing the deviation between the predicted and REFPROP $P\rho T$ and caloric properties for TMP over a wide range of state points, with particular emphasis at high pressures. 
 	
-	Uncertainties in the estimated TMH viscosity are obtained using three complementary methods. First, we use the deviation between the simulated and REFPROP $\eta$ values for the surrogate compound, TMP, at the target temperatures and pressures. Second, we account for the uncertainty in $\eta$ that is associated with uncertainties in $\rho$ for a given $P$. Third, we propagate the uncertainty in the force field non-bonded parameters using Bayesian inference. 
+	% an advanced configurational reweighting scheme. 
+	
+	% implement a configurational reweighting scheme to dramatically reduce the computational cost to parameterize the non-bonded potential.
+	
+	% parameterization. A configurational reweighting scheme  The CH$_3$, CH$_2$, CH, and C non-bonded parameters are optimized simultaneously by implementing a configurational reweighting scheme that dramatically reduces computational costs for force field parameterization. 
+	
+	%This high-dimensional parameterization is possible by reweighting configurations using Multistate Bennett Acceptance Ratio (MBAR) and by including several properties over a wide range of state points.  
+	
+	An essential aspect of the challenge is to provide meaningful estimates of uncertainty. For this reason, uncertainties in the predicted TMH viscosity are quantified using three different methods. First, we estimate systematic bias in the force field by comparing the simulated and REFPROP $\eta$ values for the surrogate compound, TMP, at the challenge temperature and pressures. Second, we account for the uncertainty in $\eta$ that is associated with uncertainties in $\rho$ for a given $P$. Third, we propagate the uncertainty in the force field non-bonded parameters using Bayesian inference. 
 	
 \end{document}
