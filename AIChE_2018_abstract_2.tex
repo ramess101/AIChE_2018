@@ -21,17 +21,18 @@
 \begin{document}
 	\thispagestyle{empty}
 	%make title bold and 14 pt font (Latex default is non-bold, 16 pt)
-	\title{\Large \textbf{Reweighting molecular simulation configurations for rapid prediction of vapor-liquid equilibria, $p\rho T$, and caloric properties}}
+	\title{\Large \textbf{Reweighting molecular simulation configurations for rapid force field parameterization}}
+			% prediction of vapor-liquid equilibria, $p\rho T$, and caloric properties}}
 %	\author[1]{\large {Andrei Kazakov}}
 	\author[2]{\large {Michael Shirts}}
-	%\author[3]{\large {S. Mostafa Razavi}}
+	\author[3]{\large {S. Mostafa Razavi}}
 	\author[1]{\large {\underline{Richard Messerly}}}%%[12 pt regular, presenting speaker underlined]
 	
 	
 	\affil[1]{\textit{Thermodynamics Research Center (TRC), National Institute of Standards and Technology (NIST),
 			Boulder, Colorado, 80305, USA}}
 	\affil[2]{\textit{Department of Chemical and Biological Engineering, University of Colorado, Boulder, Colorado, 80309, USA}}
-	%\affil[3]{\textit{Department of Chemical and Biomolecular Engineering, The University of Akron, Akron, Ohio, 44325, USA}}
+	\affil[3]{\textit{Department of Chemical and Biomolecular Engineering, The University of Akron, Akron, Ohio, 44325, USA}}
 	
 	\date{} % <--- leave date empty
 	\maketitle\thispagestyle{empty} %% <-- you need this for the first page
@@ -47,12 +48,16 @@
 	%Poster Sessions (POSTERSESSIONS) 
 	%CoMSEF Poster session 
 	
-	The reliability of molecular simulation results depends primarily on the force field, with the non-bonded interactions playing a key role. Unfortunately, non-bonded potentials that are empirically parameterized with thermophysical properties traditionally use iterative brute-force methods that require large amounts of molecular simulation. 
+	Molecular simulation is an efficient approach for predicting thermophysical properties, such as vapor-liquid equilibria (VLE), pressure-density-temperature behavior $(p\rho T)$, and caloric properties. The reliability of molecular simulation results depends primarily on the force field, with the non-bonded interactions playing a key role. Unfortunately, non-bonded potentials that are empirically parameterized with thermophysical properties (typically VLE) traditionally use iterative brute-force methods that require large amounts of molecular simulation. 
 	
 	A more efficient approach than simulating each proposed non-bonded parameter set is to reuse the information gained from nearby parameter sets. This study demonstrates how to utilize Multistate Bennett Acceptance Ratio (MBAR) for this purpose. Specifically, MBAR reweights configurations that are sampled using a few reference parameter sets to predict the internal energy and pressure for other non-bonded parameter sets, without performing additional direct simulations. 
 	
-	The MBAR algorithm requires that the energies and forces are recomputed for the sampled configurations using the new non-bonded parameter set. Basis functions are shown to be a computationally efficient method for recomputing these quantities. Basis functions eliminate the need for looping through non-bonded interactions by providing a linear relationship between the total non-bonded energy and the non-bonded parameters. 
+	We demonstrate how to implement MBAR with NVT isothermal isochoric integration (ITIC) and Grand Canonical Monte Carlo (GCMC) to obtain vapor-liquid equilibria properties. The MBAR-ITIC and MBAR-GCMC algorithms require that the energies and forces are recomputed for the sampled configurations using the new non-bonded parameter set. Basis functions are shown to be a computationally efficient method for recomputing these quantities. Basis functions eliminate the need for looping through non-bonded interactions when a linear relationship exists between the non-bonded energy (or force) and the non-bonded parameters. Implementing basis functions with MBAR-ITIC and MBAR-GCMC reduces the computational cost to parameterize the non-bonded potential by approximately three to five orders of magnitude relative to the traditional approach, where the reduction is greatest for larger molecules and systems.
 	
-	We demonstrate how to implement MBAR with NVT isothermal isochoric integration (ITIC) and Grand Canonical Monte Carlo (GCMC) to obtain vapor-liquid equilibria properties. MBAR with basis functions reduces the computational cost by approximately three to five orders of magnitude relative to direct simulation of VLE, where the reduction is greatest for larger molecules and systems. With this significant computational speed-up, we use a robust, high-dimensional, Bayesian optimization routine to simultaneously parameterize a Mie $n$-6 potential for several interaction sites. 
+	%by providing a linear relationship between the total non-bonded energy and the non-bonded parameters. 
+	
+	 
+	 
+	%With this significant computational speed-up, we use a robust, high-dimensional, Bayesian optimization routine to simultaneously parameterize a Mie $n$-6 potential for several interaction sites. 
 	
 \end{document}
